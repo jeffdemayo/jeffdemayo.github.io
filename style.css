@@ -1,103 +1,36 @@
-:root {
-    --bg: #f9f9f9;
-    --text: #1a1a1a;
-    --primary: #0d6efd;
-    --secondary: #6c757d;
-    --card: #fff;
-}
-
 body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: var(--bg);
-    color: var(--text);
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f0f8ff;
+    color: #333;
 }
 
-header.cabecalho {
-    background-color: var(--primary);
-    color: white;
-    padding: 2rem 1rem;
+header h1 {
+    color: #005f73;
 }
 
-.container-topo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    text-align: left;
+#sobre-mim {
+    margin-top: 30px;
 }
 
-.foto-perfil {
-    width: 120px;
-    height: 120px;
+#sobre-mim img {
     border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    margin-bottom: 10px;
 }
 
-.info-topo h1 {
-    font-size: 2.2rem;
-    margin: 0;
+#interacao {
+    margin-top: 30px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #0a9396;
     color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
-.info-topo p {
-    margin: 0.3rem 0 0;
-    font-size: 1.1rem;
-    color: #e0e0e0;
+button:hover {
+    background-color: #007f7f;
 }
-
-main {
-    max-width: 960px;
-    margin: 2rem auto;
-    padding: 1rem;
-}
-
-section {
-    background-color: var(--card);
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-    margin-top: 0;
-    color: var(--primary);
-}
-
-ul {
-    padding-left: 1.2rem;
-}
-
-a {
-    color: var(--primary);
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-.projetos-grid {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-}
-
-.card {
-    background-color: var(--card);
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.card h3 {
-    margin-top: 0;
-}
-
-.card a {
-    color: var(--primary);

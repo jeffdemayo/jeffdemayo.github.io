@@ -1,53 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-        content="width=device-width, initial-scale=1" />
-        <title>Jefferson Souza - Portfólio</title>
-        <link rel="stylesheet" href="style.css" />
-    </head>
-    <body>
-        <header class="cabecalho">
-            <div class="container-topo">
-                <img src="perfil.jpg" alt="Foto de Jefferson" class="foto-perfil">
-                <div>
-                <h1>Jefferson Souza</h1>
-                <p>Desenvolvedor Web em formação</p>
-                </div>
-            </div>
-        </header>
-        <main>
-            <section id="sobre-mim">
-                <p>Olá! Meu nome é Jefferson e estou iniciando minha carreira como desenvolvedor. Aqui você encontra meus projetos e competências.</p>
-            </section>
 
-            <section id="projetos">
-                <h2>Projetos</h2>
-                <div class="projetos-grid">
-                    <div class="card">
-                        <h3>Meu Portfólio</h3>
-                        <p>Este site que você está visitando! Criado do zero com HTML e CSS.</p>
-                        <a href="https://jeffdemayo.github.io/portfolio-html/" target="_blank">Ver online</a>
-                    </div>
-                    <!-- Em breve mais projetos aqui -->
-                </div>
-            </section>
+<head>
+    <meta charset="UTF-8" />
+    <title>Portfólio do Jefferson</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
 
-            <section id="skills">
-                <h2>Skills</h2>
-                <ul>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>Git e GitHub</li>
-                    <li>Linux / Ubunto</li>
-                </ul>
-            </section>
+<body>
+    <header>
+        <h1>Olá! Eu sou o Jefferson</h1>
+    </header>
 
-            <section id="contato">
-                <h2>Contato</h2>
-                <p>Email: jeffersondemayo@gmail.com</p>
-            </section>
-        </main>
-    </body>
+    <section id="sobre-mim">
+        <h2>Sobre mim</h2>
+        <img src="perfil.png" alt="Foto do Jefferson" width="150" />
+        <p>Sou apaixonado por tecnologia, programação e desafios.</p>
+    </section>
+
+    <section id="interacao">
+        <button id="btnMensagem">Clique aqui para uma mensagem</button>
+        <p id="mensagem"></p>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
 </html>
