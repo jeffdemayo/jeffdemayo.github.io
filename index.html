@@ -3,25 +3,60 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Portfólio do Jefferson</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfólio de Jefferson</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
     <header>
-        <h1>Olá! Eu sou o Jefferson</h1>
+        <h1>Olá! Eu sou o Jefferson 👋</h1>
+        <p>Desenvolvedor em formação, apaixonado por tecnologia e lógica.</p>
     </header>
 
-    <section id="sobre-mim">
+    <section id="sobre">
         <h2>Sobre mim</h2>
-        <img src="perfil.png" alt="Foto do Jefferson" width="150" />
-        <p>Sou apaixonado por tecnologia, programação e desafios.</p>
+        <img src="perfil.png" alt="Foto de Jefferson" class="perfil" />
+        <p>
+            Tenho 30 anos, sou autodidata, curioso e movido por desafios. Após experiências com administração, pacote
+            Office e como sommelier, encontrei na programação uma forma de unir lógica, criatividade e liberdade. Busco
+            me tornar desenvolvedor full stack e viver com equilíbrio entre trabalho, família e liberdade geográfica.
+        </p>
     </section>
 
-    <section id="interacao">
+    <section id="habilidades">
+        <h2>Habilidades</h2>
+        <ul>
+            <li>✅ HTML5</li>
+            <li>✅ CSS3</li>
+            <li>✅ JavaScript</li>
+            <li>✅ Git e GitHub</li>
+            <li>✅ Pacote Office Avançado</li>
+            <li>✅ Comunicação e lógica</li>
+        </ul>
+    </section>
+
+    <section id="projetos">
+        <h2>Projetos</h2>
+        <div class="projeto">
+            <h3>Portfólio inicial</h3>
+            <p>Meu primeiro site pessoal feito com HTML e CSS puro.</p>
+            <a href="https://jeffdemayo.github.io/portfolio-html" target="_blank">🔗 Ver online</a> |
+            <a href="https://github.com/jeffdemayo/portfolio-html" target="_blank">📂 Código fonte</a>
+        </div>
+    </section>
+
+    <section id="contato">
+        <h2>Contato</h2>
+        <p>📧 jeffersondemayo@gmail.com</p>
+        <p>🐙 <a href="https://github.com/jeffdemayo" target="_blank">GitHub</a></p>
+    </section>
+
+    <footer>
+        <p>Feito com dedicação por Jefferson - 2025</p>
         <button id="btnMensagem">Clique aqui para uma mensagem</button>
         <p id="mensagem"></p>
-    </section>
+    </footer>
 
     <script src="script.js"></script>
 </body>

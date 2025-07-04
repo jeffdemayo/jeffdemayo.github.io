@@ -1,6 +1,4 @@
-const botao = document.getElementById("btnMensagem");
-const mensagem = document.getElementById("mensagem");
-
-botao.addEventListener("click", () => {
-    mensagem.textContent = "Obrigado por clicar! Vamos programar juntos!";
+document.getElementById("btnMensagem").addEventListener("click", function () {
+    const mensagem = document.getElementById("mensagem");
+    mensagem.textContent = "Obrigado por visitar meu portfólio! Em breve mais novidades 🚀";
 });
