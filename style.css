@@ -28,15 +28,17 @@ body {
 header {
     background-color: var(--cor-primaria);
     color: var(--cor-clara);
-    padding: 2rem;
+    padding: 2rem 5%;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* ===== Seções ===== */
 section {
+    width: 90%;
+    max-width: 900px;
     padding: 2rem;
     margin: 1rem auto;
-    max-width: 900px;
     background-color: var(--cor-clara);
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
@@ -50,7 +52,8 @@ section:hover {
 
 /* ===== Perfil ===== */
 .perfil {
-    width: 120px;
+    width: 30%;
+    max-width: 120px;
     border-radius: 50%;
     display: block;
     margin: 1rem auto;
@@ -84,11 +87,12 @@ li:hover {
 .projeto {
     background-color: var(--cor-clara);
     border-left: 4px solid var(--cor-primaria);
-    padding: 1.2rem 1rem;
+    padding: 1rem 2%;
     margin-bottom: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    word-wrap: break-word;
 }
 
 .projeto:hover {
@@ -106,6 +110,9 @@ li:hover {
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
+    display: inline-block;
+    margin-right: 0.5rem;
+    word-break: break-word;
 }
 
 .projeto a:hover {
@@ -128,7 +135,7 @@ a:hover {
 /* ===== Footer ===== */
 footer {
     text-align: center;
-    padding: 2rem;
+    padding: 2rem 5%;
     background-color: var(--cor-primaria);
     color: var(--cor-clara);
     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
@@ -136,7 +143,7 @@ footer {
 
 /* ===== Botão ===== */
 button {
-    padding: 12px 24px;
+    padding: 1rem 2rem;
     margin-top: 1rem;
     background-color: var(--cor-secundaria);
     color: var(--cor-clara);
@@ -145,10 +152,21 @@ button {
     cursor: pointer;
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    width: auto;
 }
 
 button:hover {
     background-color: var(--cor-terciaria);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== Nav simples responsiva ===== */
+nav ul {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* Permite que os links quebrem linha em telas menores */
+    gap: 1rem;
 }
