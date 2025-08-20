@@ -1,35 +1,68 @@
+/* Definição do charset */
+@charset "UTF-8";
+
+/* ===== Paleta de cores ===== */
+:root {
+    --cor-primaria: #004d7a;
+    /* Azul escuro principal */
+    --cor-secundaria: #00a896;
+    /* Verde/turquesa de destaque */
+    --cor-terciaria: #0077b6;
+    /* Azul intermediário para hover */
+    --cor-fundo: #f2f2f2;
+    /* Fundo claro */
+    --cor-clara: #ffffff;
+    /* Branco para seções/cards */
+}
+
+/* ===== Geral ===== */
 body {
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f2f2f2;
+    background-color: var(--cor-fundo);
     color: #333;
     line-height: 1.6;
 }
 
 header {
-    background-color: #004d7a;
-    color: white;
+    background-color: var(--cor-primaria);
+    color: var(--cor-clara);
     padding: 2rem;
     text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 section {
     padding: 2rem;
     margin: 1rem auto;
-    max-width: 800px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    background-color: var(--cor-clara);
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Perfil ===== */
 .perfil {
     width: 120px;
     border-radius: 50%;
     display: block;
     margin: 1rem auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
+.perfil:hover {
+    transform: scale(1.05);
+}
+
+/* ===== Listas ===== */
 ul {
     list-style-type: none;
     padding-left: 0;
@@ -38,43 +71,84 @@ ul {
 li {
     background: #e0f7fa;
     margin: 0.5rem 0;
-    padding: 0.5rem;
-    border-radius: 6px;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
 }
 
+li:hover {
+    background-color: #b2ebf2;
+}
+
+/* ===== Projetos ===== */
 .projeto {
-    background-color: #f9f9f9;
-    border-left: 4px solid #004d7a;
-    padding: 1rem;
-    margin-bottom: 1rem;
+    background-color: var(--cor-clara);
+    border-left: 4px solid var(--cor-primaria);
+    padding: 1.2rem 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-a {
-    color: #004d7a;
+.projeto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.projeto h3 {
+    margin-top: 0;
+    color: var(--cor-primaria);
+}
+
+.projeto a {
+    color: var(--cor-primaria);
     text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
-a:hover {
+.projeto a:hover {
+    color: var(--cor-terciaria);
     text-decoration: underline;
 }
 
+/* ===== Links gerais ===== */
+a {
+    color: var(--cor-primaria);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--cor-terciaria);
+    text-decoration: underline;
+}
+
+/* ===== Footer ===== */
 footer {
     text-align: center;
     padding: 2rem;
-    background-color: #004d7a;
-    color: white;
+    background-color: var(--cor-primaria);
+    color: var(--cor-clara);
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* ===== Botão ===== */
 button {
-    padding: 10px 20px;
+    padding: 12px 24px;
     margin-top: 1rem;
-    background-color: #00a896;
-    color: white;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-clara);
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 button:hover {
-    background-color: #028090;
+    background-color: var(--cor-terciaria);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }

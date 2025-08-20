@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>gtrcarros</title>
+  <meta name="theme-color" content="#142455" />
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/assets/img/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script defer src="/assets/js/app.js"></script>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a href="/index.html" class="logo"><img src="/assets/img/logo-placeholder.svg" alt="gtrcarros" /></a>
+      <nav class="nav">
+        <a href="/index.html">Início</a>
+        <a href="/inventory.html">Estoque</a>
+        <a href="/sellers.html">Vendedores</a>
+        <a href="/about.html">Sobre</a>
+        <a href="/contact.html">Contato</a>
+        <a class="btn btn-primary" id="whatsTop" target="_blank" rel="noopener">WhatsApp</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+    </div>
+  </header>
+  <main class="main">
+    <section class="container prose">
+      <h1>Política de Privacidade</h1>
+      <p>Este site utiliza cookies funcionais e dados de navegação para melhorar a experiência. Não vendemos dados
+        pessoais. Ao utilizar nossos serviços, você concorda com esta política.</p>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>gtrcarros</h4>
+        <p>Carros selecionados, atendimento humano e transparente.</p>
+        <div class="social" id="socialLinks"></div>
+      </div>
+      <div>
+        <h4>Contactos</h4>
+        <ul id="contactList"></ul>
+      </div>
+      <div>
+        <h4>Links</h4>
+        <ul class="links">
+          <li><a href="/inventory.html">Estoque</a></li>
+          <li><a href="/sellers.html">Vendedores</a></li>
+          <li><a href="/about.html">História</a></li>
+          <li><a href="/contact.html">Contato</a></li>
+          <li><a href="/privacy.html">Privacidade</a></li>
+          <li><a href="/terms.html">Termos</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">© <span id="year"></span> gtrcarros. Todos os direitos reservados.</div>
+  </footer>
+  <script>
+    if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/service-worker.js'); }
+  </script>
+</body>
+
+</html>

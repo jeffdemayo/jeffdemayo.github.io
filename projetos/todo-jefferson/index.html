@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List | Jefferson</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="container">
+        <h1>📋 Lista de Tarefas</h1>
+
+        <div class="formulario">
+            <input type="text" id="tarefa" placeholder="Nova tarefa..." />
+            <input type="datetime-local" id="data-planejada" />
+            <select id="prioridade">
+                <option value="normal">🔵 Normal</option>
+                <option value="alta">🔴 Alta</option>
+                <option value="baixa">🟢 Baixa</option>
+            </select>
+            <button onclick="adicionarTarefa()">Adicionar</button>
+        </div>
+
+        <div class="filtros">
+            <button onclick="filtrar('todas')">Todas</button>
+            <button onclick="filtrar('pendentes')">Pendentes</button>
+            <button onclick="filtrar('concluidas')">Concluídas</button>
+        </div>
+
+        <ul id="lista-tarefas"></ul>
+    </section>
+
+    <div class="limpeza-opcoes" id="limpeza-opcoes" style="display: none;">
+        <button onclick="limparTarefas('todas')">🗑️ Apagar Todas</button>
+        <button onclick="limparTarefas('concluidas')">✅ Apagar Concluídas</button>
+        <button onclick="fecharLimpeza()">❌ Cancelar</button>
+    </div>
+
+    <button id="btn-resetar" onclick="mostrarMenuLimpeza()">🧹</button>
+
+    <footer>
+        <p>Feito por Jefferson 🧠💻</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
