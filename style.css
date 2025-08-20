@@ -1,30 +1,60 @@
 /* Definição do charset */
 @charset "UTF-8";
 
-/* ===== Paleta de cores ===== */
+/* ===== Variáveis e Paleta de Cores ===== */
 :root {
     --cor-primaria: #004d7a;
-    /* Azul escuro principal */
     --cor-secundaria: #00a896;
-    /* Verde/turquesa de destaque */
     --cor-terciaria: #0077b6;
-    /* Azul intermediário para hover */
     --cor-fundo: #f2f2f2;
-    /* Fundo claro */
     --cor-clara: #ffffff;
-    /* Branco para seções/cards */
+    --sombra-leve: 0 2px 6px rgba(0, 0, 0, 0.08);
+    --sombra-media: 0 4px 12px rgba(0, 0, 0, 0.2);
+    --sombra-pesada: 0 10px 25px rgba(0, 0, 0, 0.15);
+    --transicao-padrao: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ===== Geral ===== */
-body {
-    font-family: 'Segoe UI', sans-serif;
+/* ===== Reset e Base ===== */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
     background-color: var(--cor-fundo);
     color: #333;
     line-height: 1.6;
 }
 
+/* ===== Contêineres Principais e Efeitos ===== */
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 1rem auto;
+    padding: 2rem;
+    background-color: var(--cor-clara);
+    border-radius: 10px;
+    box-shadow: var(--sombra-leve);
+    transition: var(--transicao-padrao);
+}
+
+.container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Títulos de Seção ===== */
+section h2 {
+    color: var(--cor-primaria);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    border-bottom: 2px solid var(--cor-primaria);
+    padding-bottom: 0.5rem;
+}
+
+/* ===== Cabeçalho ===== */
 header {
     background-color: var(--cor-primaria);
     color: var(--cor-clara);
@@ -33,27 +63,81 @@ header {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* ===== Seções ===== */
-section {
-    width: 90%;
-    max-width: 900px;
-    padding: 2rem;
-    margin: 1rem auto;
-    background-color: var(--cor-clara);
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
 }
 
-section:hover {
+header p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0.5rem auto 1.5rem auto;
+}
+
+/* ===== NAVEGAÇÃO OTIMIZADA ===== */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+header nav ul li a {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--cor-secundaria);
+    color: #000000 !important;
+    /* FORÇANDO a cor preta */
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+header nav ul li a:hover {
+    background-color: var(--cor-terciaria);
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--sombra-media);
 }
 
-/* ===== Perfil ===== */
+/* Responsividade: para telas maiores (desktops) */
+@media (min-width: 768px) {
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+
+    header nav ul li a {
+        background-color: transparent;
+        color: var(--cor-clara);
+        padding: 0.5rem 1rem;
+        border-radius: 0;
+        border-bottom: 2px solid transparent;
+        transition: border-bottom 0.3s ease, color 0.3s ease;
+        transform: none;
+        box-shadow: none;
+    }
+
+    header nav ul li a:hover {
+        color: var(--cor-secundaria);
+        border-bottom: 2px solid var(--cor-secundaria);
+        background-color: transparent;
+        transform: none;
+        box-shadow: none;
+    }
+}
+
+
+/* ===== Perfil e Projetos ===== */
 .perfil {
-    width: 30%;
-    max-width: 120px;
+    width: 150px;
     border-radius: 50%;
     display: block;
     margin: 1rem auto;
@@ -65,39 +149,16 @@ section:hover {
     transform: scale(1.05);
 }
 
-/* ===== Listas ===== */
-ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-li {
-    background: #e0f7fa;
-    margin: 0.5rem 0;
-    padding: 0.6rem 1rem;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-}
-
-li:hover {
-    background-color: #b2ebf2;
-}
-
-/* ===== Projetos ===== */
 .projeto {
-    background-color: var(--cor-clara);
+    margin-bottom: 1.5rem;
     border-left: 4px solid var(--cor-primaria);
     padding: 1rem 2%;
-    margin-bottom: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    word-wrap: break-word;
+    transition: var(--transicao-padrao);
 }
 
 .projeto:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--sombra-pesada);
 }
 
 .projeto h3 {
@@ -105,14 +166,16 @@ li:hover {
     color: var(--cor-primaria);
 }
 
+.projeto p {
+    word-wrap: break-word;
+}
+
 .projeto a {
     color: var(--cor-primaria);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
-    display: inline-block;
     margin-right: 0.5rem;
-    word-break: break-word;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
 .projeto a:hover {
@@ -120,29 +183,25 @@ li:hover {
     text-decoration: underline;
 }
 
-/* ===== Links gerais ===== */
-a {
-    color: var(--cor-primaria);
-    text-decoration: none;
-    transition: color 0.3s ease;
+/* ===== Listas de Habilidades e Redes Sociais ===== */
+ul li {
+    background: #e0f7fa;
+    margin: 0.5rem 0;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
-a:hover {
-    color: var(--cor-terciaria);
-    text-decoration: underline;
+ul li:hover {
+    background-color: #b2ebf2;
 }
 
-/* ===== Footer ===== */
-footer {
-    text-align: center;
-    padding: 2rem 5%;
-    background-color: var(--cor-primaria);
-    color: var(--cor-clara);
-    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* ===== Botão ===== */
-button {
+/* ===== Botões e Rodapé ===== */
+button,
+.btn-voltar {
     padding: 1rem 2rem;
     margin-top: 1rem;
     background-color: var(--cor-secundaria);
@@ -151,22 +210,22 @@ button {
     border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    width: auto;
 }
 
-button:hover {
+button:hover,
+.btn-voltar:hover {
     background-color: var(--cor-terciaria);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--sombra-media);
 }
 
-/* ===== Nav simples responsiva ===== */
-nav ul {
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    /* Permite que os links quebrem linha em telas menores */
-    gap: 1rem;
+footer {
+    text-align: center;
+    padding: 2rem 5%;
+    background-color: var(--cor-primaria);
+    color: var(--cor-clara);
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
 }
