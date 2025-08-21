@@ -74,63 +74,42 @@ header p {
     margin: 0.5rem auto 1.5rem auto;
 }
 
-/* ===== NAVEGAÇÃO OTIMIZADA ===== */
+/* ===== NAVEGAÇÃO REVISADA E UNIFICADA ===== */
 nav ul {
     list-style: none;
     padding: 0;
     display: flex;
     flex-direction: column;
+    /* Padrão: menu vertical */
     align-items: center;
     gap: 1rem;
 }
 
 header nav ul li a {
-    display: block;
-    width: 100%;
-    max-width: 250px;
-    padding: 0.8rem 1.5rem;
-    background-color: var(--cor-secundaria);
-    color: #000000 !important;
-    /* FORÇANDO a cor preta */
-    text-align: center;
+    background-color: transparent;
+    color: var(--cor-primaria);
     text-decoration: none;
     font-weight: 600;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    transition: background-color 0.3s ease, border 0.3s ease;
 }
 
 header nav ul li a:hover {
-    background-color: var(--cor-terciaria);
-    transform: translateY(-3px);
-    box-shadow: var(--sombra-media);
+    background-color: rgba(255, 255, 255, 0.1);
+    
 }
 
-/* Responsividade: para telas maiores (desktops) */
+/* Estilo para desktop: muda para horizontal */
 @media (min-width: 768px) {
     nav ul {
         flex-direction: row;
+        /* Menu horizontal */
         justify-content: center;
         flex-wrap: wrap;
         gap: 2rem;
-    }
-
-    header nav ul li a {
-        background-color: transparent;
-        color: var(--cor-clara);
-        padding: 0.5rem 1rem;
-        border-radius: 0;
-        border-bottom: 2px solid transparent;
-        transition: border-bottom 0.3s ease, color 0.3s ease;
-        transform: none;
-        box-shadow: none;
-    }
-
-    header nav ul li a:hover {
-        color: var(--cor-secundaria);
-        border-bottom: 2px solid var(--cor-secundaria);
-        background-color: transparent;
-        transform: none;
-        box-shadow: none;
     }
 }
 
@@ -184,6 +163,11 @@ header nav ul li a:hover {
 }
 
 /* ===== Listas de Habilidades e Redes Sociais ===== */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
 ul li {
     background: #e0f7fa;
     margin: 0.5rem 0;
