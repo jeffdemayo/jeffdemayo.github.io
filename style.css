@@ -1,215 +1,324 @@
-/* Definição do charset */
 @charset "UTF-8";
 
-/* ===== Variáveis e Paleta de Cores ===== */
+/* ===== 1. VARIÁVEIS ===== */
 :root {
-    --cor-primaria: #004d7a;
-    --cor-secundaria: #00a896;
-    --cor-terciaria: #0077b6;
-    --cor-fundo: #f2f2f2;
-    --cor-clara: #ffffff;
-    --sombra-leve: 0 2px 6px rgba(0, 0, 0, 0.08);
-    --sombra-media: 0 4px 12px rgba(0, 0, 0, 0.2);
-    --sombra-pesada: 0 10px 25px rgba(0, 0, 0, 0.15);
-    --transicao-padrao: transform 0.3s ease, box-shadow 0.3s ease;
+    --primary: #A52A2A;
+    --secondary: #D4AF37;
+    --bg-page: #121212;
+    --bg-card: #1E1E1E;
+    --text-main: #E0E0E0;
+    --text-muted: #A0A0A0;
+    --white: #ffffff;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    --radius: 12px;
+    --header-height: 70px;
 }
 
-/* ===== Reset e Base ===== */
+/* ===== 2. RESET E BASE ===== */
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);
+}
+
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: var(--cor-fundo);
-    color: #333;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-page);
+    color: var(--text-main);
     line-height: 1.6;
 }
 
-/* ===== Contêineres Principais e Efeitos ===== */
+/* ===== 3. HEADER E MENU HAMBÚRGUER (Hitbox Otimizada) ===== */
+.main-header {
+    background: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(10px);
+    color: var(--white);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: var(--header-height);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(165, 42, 42, 0.3);
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--secondary);
+}
+
+/* Ajuste na área de clique do botão */
+.menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+    padding: 15px;
+    /* Aumenta a área de clique significativamente */
+    margin-right: -15px;
+    /* Compensa o padding para manter alinhado à direita */
+}
+
+.hamburger {
+    display: block;
+    width: 26px;
+    height: 3px;
+    background: var(--white);
+    position: relative;
+    transition: 0.3s;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 26px;
+    height: 3px;
+    background: var(--white);
+    transition: 0.3s;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    bottom: -8px;
+}
+
+.menu-toggle.active .hamburger {
+    background: transparent;
+}
+
+.menu-toggle.active .hamburger::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.menu-toggle.active .hamburger::after {
+    transform: rotate(-45deg);
+    bottom: 0;
+}
+
+.nav-menu {
+    position: fixed;
+    top: var(--header-height);
+    right: -100%;
+    width: 80%;
+    height: calc(100vh - var(--header-height));
+    background: #1A1A1A;
+    transition: 0.4s ease;
+    padding: 3rem 2rem;
+}
+
+.nav-menu.active {
+    right: 0;
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+/* ===== 4. CONTEÚDO (MOBILE FIRST) ===== */
+.section-top {
+    margin-top: calc(var(--header-height) + 2rem);
+}
+
 .container {
     width: 90%;
     max-width: 900px;
-    margin: 1rem auto;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    background: var(--bg-card);
     padding: 2rem;
-    background-color: var(--cor-clara);
-    border-radius: 10px;
-    box-shadow: var(--sombra-leve);
-    transition: var(--transicao-padrao);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.container:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+h2 {
+    color: var(--secondary);
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    border-left: 4px solid var(--primary);
+    padding-left: 15px;
 }
 
-/* ===== Títulos de Seção ===== */
-section h2 {
-    color: var(--cor-primaria);
+.perfil {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary);
     margin-bottom: 1rem;
-    font-size: 1.8rem;
-    border-bottom: 2px solid var(--cor-primaria);
-    padding-bottom: 0.5rem;
 }
 
-/* ===== Cabeçalho ===== */
-header {
-    background-color: var(--cor-primaria);
-    color: var(--cor-clara);
-    padding: 2rem 5%;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-}
-
-header p {
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0.5rem auto 1.5rem auto;
-}
-
-/* ===== NAVEGAÇÃO REVISADA E UNIFICADA ===== */
-nav ul {
-    list-style: none;
-    padding: 0px;
+.sobre-layout {
     display: flex;
     flex-direction: column;
-    /* Padrão: menu vertical */
     align-items: center;
-    gap: 1rem;
-}
-
-header nav ul li a {
-    background-color: transparent;
-    color: var(--cor-primaria);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    padding: 0.5rem 1rem;
-    border-radius: 0px;
-    border: 2px solid transparent;
-    transition: background-color 0.3s ease, border 0.3s ease;
-}
-
-header nav ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    
-}
-
-/* Estilo para desktop: muda para horizontal */
-@media (min-width: 768px) {
-    nav ul {
-        flex-direction: row;
-        /* Menu horizontal */
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 2rem;
-    }
-}
-
-
-/* ===== Perfil e Projetos ===== */
-.perfil {
-    width: 150px;
-    border-radius: 50%;
-    display: block;
-    margin: 1rem auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.perfil:hover {
-    transform: scale(1.05);
-}
-
-.projeto {
-    margin-bottom: 1.5rem;
-    border-left: 4px solid var(--cor-primaria);
-    padding: 1rem 2%;
-    transition: var(--transicao-padrao);
-}
-
-.projeto:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--sombra-pesada);
-}
-
-.projeto h3 {
-    margin-top: 0;
-    color: var(--cor-primaria);
-}
-
-.projeto p {
-    word-wrap: break-word;
-}
-
-.projeto a {
-    color: var(--cor-primaria);
-    text-decoration: none;
-    font-weight: 500;
-    margin-right: 0.5rem;
-    transition: color 0.3s ease, text-decoration 0.3s ease;
-}
-
-.projeto a:hover {
-    color: var(--cor-terciaria);
-    text-decoration: underline;
-}
-
-/* ===== Listas de Habilidades e Redes Sociais ===== */
-ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-ul li {
-    background: #e0f7fa;
-    margin: 0.5rem 0;
-    padding: 0.6rem 1rem;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-ul li:hover {
-    background-color: #b2ebf2;
-}
-
-/* ===== Botões e Rodapé ===== */
-button,
-.btn-voltar {
-    padding: 1rem 2rem;
-    margin-top: 1rem;
-    background-color: var(--cor-secundaria);
-    color: var(--cor-clara);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    text-decoration: none;
-    display: inline-block;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-}
-
-button:hover,
-.btn-voltar:hover {
-    background-color: var(--cor-terciaria);
-    transform: translateY(-2px);
-    box-shadow: var(--sombra-media);
-}
-
-footer {
     text-align: center;
-    padding: 2rem 5%;
-    background-color: var(--cor-primaria);
-    color: var(--cor-clara);
-    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    gap: 1.5rem;
+}
+
+.skills-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.skill-item {
+    background: rgba(165, 42, 42, 0.1);
+    padding: 0.8rem;
+    border-radius: 8px;
+    color: var(--text-main);
+    font-weight: 600;
+    text-align: center;
+    border: 1px solid rgba(165, 42, 42, 0.3);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.card {
+    background: #252525;
+    padding: 1.5rem;
+    border-radius: 10px;
+    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.card h3 {
+    color: var(--white);
+    margin-bottom: 0.8rem;
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.links {
+    margin-top: 1.2rem;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.links a {
+    color: var(--secondary);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+/* ===== 5. FOOTER ===== */
+.main-footer {
+    text-align: center;
+    padding: 4rem 1rem;
+    background: #0A0A0A;
+    color: var(--text-muted);
+}
+
+#btnMensagem {
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: 0.9rem 2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    margin-top: 1.5rem;
+}
+
+/* ===== 6. MEDIA QUERIES (DESKTOP) ===== */
+@media (min-width: 992px) {
+    .menu-toggle {
+        display: none;
+    }
+
+    .nav-menu {
+        position: static;
+        width: auto;
+        height: auto;
+        background: none;
+        padding: 0;
+    }
+
+    .nav-menu ul {
+        flex-direction: row;
+        gap: 2.5rem;
+    }
+
+    .nav-menu a {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        transition: 0.3s;
+    }
+
+    .nav-menu a:hover {
+        color: var(--white);
+    }
+
+    .sobre-layout {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .perfil {
+        width: 160px;
+        height: 160px;
+    }
+
+    .skills-flex {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .skill-item {
+        flex: 1 1 calc(33.33% - 10px);
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
 }
